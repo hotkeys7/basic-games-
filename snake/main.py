@@ -123,6 +123,10 @@ class Game:
                 self.play_sound("crash")
                 raise "Game Over - Wasted"
 
+        if not (0<= self.snake.x[0] <= 1000 and 0<= self.snake.y[0] <= 760):
+            self.play_sound("crash")
+            raise "Hit boundary errorrr"
+
     def show_game_over(self):
         self.render_background()
         self.surface.fill(BACKGROUND_COLOR)
@@ -188,7 +192,7 @@ class Game:
                 pause = True
                 self.reset()
 
-            time.sleep(0.2)
+            time.sleep(0.1)
 
 
 if __name__ == '__main__':
